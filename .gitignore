@@ -1,0 +1,16 @@
+# Dependencies — hasil `npm install`, direproduksi dari package-lock.json
+node_modules/
+
+# Environment / rahasia lokal
+.env
+.env.local
+
+# Log
+*.log
+npm-debug.log*
+
+# Editor & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
