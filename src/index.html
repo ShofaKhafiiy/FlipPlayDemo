@@ -11,6 +11,9 @@
           content="FlipPlay adalah platform hiburan digital untuk menikmati anime, drama, manga, dan light novel.">
 
     <title>FlipPlay — Watch. Read. Repeat.</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="./output.css" rel="stylesheet">
 </head>
@@ -18,136 +21,61 @@
 <body class="bg-paper text-ink antialiased">
 
     
-         <!-- NAVBAR -->
-  
-    <header class="sticky top-0 z-50 border-b border-line/80 bg-paper/95 backdrop-blur">
+    <!-- =========================
+         MASTHEAD
+         ========================== -->
+    <header class="masthead masthead--sticky masthead--menu">
 
-        <nav
-            class="realtive mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"
-            aria-label="Navigasi utama">
+        <p class="masthead__line">EDISI #01 · FLIPPLAY</p>
 
-            <!-- Logo -->
-            <a
-                href="#home"
-                class="flex items-center gap-3"
-                aria-label="FlipPlay Beranda">
+        <a class="masthead__name" href="#home">
+            Flip<span class="masthead__accent">Play</span>
+        </a>
 
-                <span
-                    class="grid h-9 w-9 place-items-center rounded-xl bg-ink text-sm font-black text-paper">
-                    F
-                </span>
+        <button class="masthead__toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Buka menu navigasi"
+                aria-expanded="false"
+                aria-controls="menu-sheet">
 
-                <span class="text-xl font-black tracking-tight">
-                    Flip<span class="text-accent">Play</span>
-                </span>
-
-            </a>
-
-
-            <!-- Navigation -->
-            <div class="hidden items-center gap-8 text-sm font-semibold sm:flex">
-
-                <a
-                    href="#home"
-                    class="transition hover:text-accent">
-                    Home
-                </a>
-
-                <a
-                    href="#explore"
-                    class="transition hover:text-accent">
-                    Explore
-                </a>
-
-                <a
-                    href="#about"
-                    class="transition hover:text-accent">
-                    About
-                </a>
-
-                <a
-                    href="#contact"
-                    class="transition hover:text-accent">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <!-- CTA -->
-             <div class="flex gap-4">
-            <a
-                href="#explore"
-                class="rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-paper transition hover:bg-accent hidden sm:block">
-
-                Start Exploring
-
-            </a>
-
-            <!-- Hamburger button -->
-             <button 
-             id="menu-toggle"
-             type="button"
-             class="flex h-10 w-10 items-center justify-center rounded-xl border-line transition hover:bg-paper-soft sm:hidden"
-             aria-label="Buka menu navigasi"
-             aria-expanded="false"
-             aria-controls="mobile-menu">
-             
-            <!-- Hamburger Icon -->
-             <svg
-             id="menu-icon"
-             xmlns="http://www.w3.org/2000/svg"
-             width="24"
-             height="24"
-             viewBox = "0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true">
-             <line x1="4" y1="6" x2="20" y2="6"></line>
+            <svg id="menu-icon"
+                 xmlns="http://www.w3.org/2000/svg"
+                 width="22" height="22"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 aria-hidden="true">
+                <line x1="4" y1="6" x2="20" y2="6"></line>
                 <line x1="4" y1="12" x2="20" y2="12"></line>
                 <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+        </button>
 
-             </svg>
-             </button>
-             <!-- mobile dropDown Menu -->
-              <div id="mobile-menu"
-              class="absolute  left-5 right-5 top-full mt-2 hidden rounded-2xl border border-line bg-paper p-3 shadow-xl sm:hidden"> 
-
-
-            <a href="#home"
-               class="block rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-paper-soft hover:text-accent">
-                Home
-            </a>
-
-            <a href="#explore"
-               class="block rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-paper-soft hover:text-accent">
-                Explore
-            </a>
-
-            <a href="#about"
-               class="block rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-paper-soft hover:text-accent">
-                About
-            </a>
-
-            <a href="#contact"
-               class="block rounded-xl px-4 py-3 text-sm font-semibold transition hover:bg-paper-soft hover:text-accent">
-                Contact
-            </a>
-
-            <a href="#explore"
-               class="mt-2 block rounded-xl bg-ink px-4 py-3 text-center text-sm font-bold text-paper transition hover:bg-accent">
-                Start Exploring
-            </a>
-
-              </div>
-             </div>
-
+        <nav class="masthead__nav" aria-label="Navigasi utama">
+            <ul>
+                <li><a href="#home" aria-current="page">Home</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./vibe-grid.html">Vibe Grid</a></li>
+            </ul>
         </nav>
 
+        <div class="masthead__sheet" id="menu-sheet">
+            <a href="#home" aria-current="page">Home</a>
+            <a href="#explore">Explore</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="./vibe-grid.html">Vibe Grid</a>
+        </div>
+
+        <hr class="masthead__rule">
+
     </header>
+        
 
 
     <!-- =========================
@@ -897,60 +825,30 @@
 
 
 
-         <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+         ========================== -->
+    <footer class="foot-mast">
 
-    <footer class="border-t border-line bg-paper">
+        <p class="foot-mast__wordmark">Flip<span>Play</span></p>
 
-        <div
-            class="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <p class="foot-mast__tagline">Watch. Read. Repeat.</p>
 
+        <nav class="foot-mast__links" aria-label="Navigasi footer">
+            <a href="#home">Home</a>
+            <a href="#explore">Explore</a>
+            <a href="./vibe-grid.html">Vibe Grid</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-            <div>
-
-                <p class="text-lg font-black">
-                    Flip<span class="text-accent">Play</span>
-                </p>
-
-                <p class="mt-1 text-sm text-muted">
-                    Watch. Read. Repeat.
-                </p>
-
-            </div>
-
-
-            <div
-                class="flex gap-5 text-sm font-semibold text-muted">
-
-                <a
-                    href="#home"
-                    class="hover:text-accent">
-                    Home
-                </a>
-
-                <a
-                    href="#explore"
-                    class="hover:text-accent">
-                    Explore
-                </a>
-
-                <a
-                    href="#contact"
-                    class="hover:text-accent">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <p class="text-sm text-muted">
-                © 2026 FlipPlay
-            </p>
-
-        </div>
+        <p class="foot-mast__licence">
+            © 2026 FlipPlay · Data dari AniList
+        </p>
 
     </footer>
+        
 
-    <script src="app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 
 </html>
