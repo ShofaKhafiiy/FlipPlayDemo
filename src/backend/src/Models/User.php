@@ -27,7 +27,7 @@ class User{
         return $this->username;
     }
 
-    public function getMedia(Media $media): bool{
+    public function addMedia(Media $media): bool{
         $mediaId = $media->getId();
 
         if(isset($this->collection[$mediaId])){
