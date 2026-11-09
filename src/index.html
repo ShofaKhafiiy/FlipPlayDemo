@@ -1,854 +1,336 @@
 <!DOCTYPE html>
-<html lang="id">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="FlipPlay adalah platform hiburan digital untuk menikmati anime, drama, manga, dan light novel.">
-
-    <title>FlipPlay — Watch. Read. Repeat.</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    <link href="./output.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlipPlay — Watch. Read. Live</title>
+    <meta 
+    name = "description"
+    content="FlipPlay menyatukan anime, drama, manga, dan light novel dalam satu ruang hiburan digital yang sederhana dan nyaman."
+    />
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+     <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./output.css" />
+    <script type="importmap">
+        {
+            "imports":{
+                "three":  "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"
+            }
+        }
+    </script>
+    <script type="module" src="./frontend/js/home.js"></script>
 </head>
+<body>
 
-<body class="bg-paper text-ink antialiased">
 
-    
-    <!-- =========================
-         MASTHEAD
-         ========================== -->
-    <header class="masthead masthead--sticky masthead--menu">
+    <header class="nav" data-nav>
+        <video
+        class="nav__video"
+        data-nav-video
+        data-src-webm="./assets/nav-loop.webm"
+        data-src-mp4="./assets/nav-loop.mp4"
+        pooster="./assets/nav-poster.jpg"
+        muted 
+        loop
+        playsinline
+        preload="none"
+        disablepictureinpicture
+        aria-hidden="true"
+        >
 
-        <p class="masthead__line">EDISI #01 · FLIPPLAY</p>
+        </video>
+        <div class="nav__scrim" aria-hidden="true"></div>
+        <div class="nav__inner">
+            <a class="nav__brand" href="./index.html">
+                <span class="nav__brand-mark">FL</span>
+                <span>
+                    FlipPlay
+                    <em>Watch · Read · Live </em>
+                </span>
+            </a>
+            <nav class="nav__links" id="nav-links" data-nav-links aria-label="Navigasi Utama">
+                <a class="nav__link" href="#home">Home</a>
+                <a class="nav__link" href="#explore">Explore</a>
+                 <a class="nav__link" href="#about">About</a>
+                <a class="nav__link" href="#contact">Contact</a>
+                <a class="nav__link" href="./vibe-grid.html">Vibe Grid</a>
+            </nav>
+            <button
+            class="nav__toggle"
+            type="button"
+            data-nav-toggle
+            aria-expanded="false"
+            aria-controls="nav-links"
+            aria-label="Buka Menu"
 
-        <a class="masthead__name" href="#home">
-            Flip<span class="masthead__accent">Play</span>
-        </a>
-
-        <button class="masthead__toggle"
-                id="menu-toggle"
-                type="button"
-                aria-label="Buka menu navigasi"
-                aria-expanded="false"
-                aria-controls="menu-sheet">
-
-            <svg id="menu-icon"
-                 xmlns="http://www.w3.org/2000/svg"
-                 width="22" height="22"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 aria-hidden="true">
-                <line x1="4" y1="6" x2="20" y2="6"></line>
-                <line x1="4" y1="12" x2="20" y2="12"></line>
-                <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-        </button>
-
-        <nav class="masthead__nav" aria-label="Navigasi utama">
-            <ul>
-                <li><a href="#home" aria-current="page">Home</a></li>
-                <li><a href="#explore">Explore</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./vibe-grid.html">Vibe Grid</a></li>
-            </ul>
-        </nav>
-
-        <div class="masthead__sheet" id="menu-sheet">
-            <a href="#home" aria-current="page">Home</a>
-            <a href="#explore">Explore</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="./vibe-grid.html">Vibe Grid</a>
+            >
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"> </span>
+            </button>
         </div>
 
-        <hr class="masthead__rule">
-
     </header>
-        
 
-
-    <!-- =========================
-         MAIN
-    ========================== -->
-
-    <main id="home">
-
-
-        <!-- =========================
-             HERO SECTION
-        ========================== -->
-
-        <section
-            class="mx-auto max-w-7xl px-5 pb-12 pt-10 lg:px-8 lg:pb-20 lg:pt-16"
-            aria-labelledby="hero-title">
-
-            <div
-                class="grid overflow-hidden rounded-[2rem] bg-ink text-paper sm:grid-cols-[1.15fr_0.85fr]">
-
-
-                <!-- Hero Text -->
-                <div
-                    class="relative flex  flex-col justify-between p-7 sm:p-10 lg:p-14">
-
-                    <div>
-
-                        <p
-                            class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white/70">
-
-                            <span
-                                class="h-2 w-2 rounded-full bg-accent">
-                            </span>
-
-                            Your entertainment shelf
-
-                        </p>
-
-
-                        <h1
-                            id="hero-title"
-                            class="max-w-3xl text-5xl font-black leading-[0.95] tracking-[-0.04em] sm:text-6xl lg:text-8xl">
-
-                            Watch it.
-                            <br>
-
-                            Read it.
-                            <br>
-
-                            <span class="text-accent">
-                                Live it.
-                            </span>
-
-                        </h1>
-
-
-                        <p
-                            class="mt-7 max-w-xl text-base leading-7 text-white/65 sm:text-lg">
-
-                            FlipPlay menyatukan anime, drama, manga,
-                            dan light novel dalam satu ruang hiburan
-                            digital yang sederhana dan nyaman.
-
-                        </p>
-
-
-                        <!-- Hero Buttons -->
-                        <div
-                            class="mt-8 flex flex-col gap-3 sm:flex-row">
-
-                            <a
-                                href="#explore"
-                                class="rounded-full bg-accent px-6 py-3.5 text-center text-sm font-black text-white transition hover:bg-accent-dark">
-
-                                Jelajahi koleksi
-
-                            </a>
-
-
-                            <a
-                                href="#about"
-                                class="rounded-full border border-white/20 px-6 py-3.5 text-center text-sm font-bold text-white transition hover:bg-white/10">
-
-                                Kenapa FlipPlay?
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Statistics -->
-                    <div
-                        class="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6">
-
-                        <div>
-
-                            <p class="text-2xl font-black">
-                                4
-                            </p>
-
-                            <p class="mt-1 text-xs text-white/50">
-                                Format hiburan
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="text-2xl font-black">
-                                1
-                            </p>
-
-                            <p class="mt-1 text-xs text-white/50">
-                                Ruang terpadu
-                            </p>
-
-                        </div>
-
-
-                        <div>
-
-                            <p class="text-2xl font-black">
-                                ∞
-                            </p>
-
-                            <p class="mt-1 text-xs text-white/50">
-                                Cerita
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Hero Image -->
-                <div
-                    class="relative min-h-[420px] overflow-hidden bg-zinc-800 sm:block sm:min-h-[420px] hidden">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1200&q=85"
-                        alt="Ilustrasi suasana membaca dan menikmati hiburan"
-                        class="absolute inset-0 h-full w-full object-cover opacity-75">
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent">
-                    </div>
-
-
-                    <!-- Featured Card -->
-                    <div
-                        class="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/15 bg-ink/75 p-5 backdrop-blur-md sm:bottom-8 sm:left-8 sm:right-8">
-
-                        <div
-                            class="flex items-end justify-between gap-4">
-
-                            <div>
-
-                                <p
-                                    class="text-xs font-bold uppercase tracking-[0.2em] text-accent">
-                                    Featured
-                                </p>
-
-                                <h2
-                                    class="mt-2 text-2xl font-black">
-                                    Stories, your way.
-                                </h2>
-
-                            </div>
-
-                            <span
-                                class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">
-
-                                #01
-
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+    <main id="konten">
+          <section class="hero" id="home" data-hero>
+        <div class="hero__poster" aria-hidden="true"></div>
+        <canvas class="hero__canvas" data-hero-canvas aria-hidden="true"></canvas>
+        <div class="hero__vignette" aria-hidden="true"></div>
+
+        <div class="hero__content" data-depth="0.15">
+          <p class="eyebrow">Your entertainment shelf</p>
+          <h1 class="hero__title">
+            Watch it.<br />
+            Read it.<br />
+            <span>Live it.</span>
+          </h1>
+          <p class="hero__lede">
+            FlipPlay menyatukan anime, drama, manga, dan light novel dalam satu
+            ruang hiburan digital yang sederhana dan nyaman.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--brass" href="./vibe-grid.html">Jelajahi koleksi</a>
+            <a class="btn btn--ghost" href="#about">Kenapa FlipPlay?</a>
+          </div>
+
+          <div class="hero__stats" aria-label="Ringkasan FlipPlay">
+            <div class="stat">
+              <p class="stat__value">4</p>
+              <p class="stat__label">Format hiburan</p>
             </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             CONTENT / EXPLORE
-        ========================== -->
-
-        <section
-            id="explore"
-            class="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20"
-            aria-labelledby="explore-title">
-
-
-            <!-- Section Header -->
-            <div
-                class="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-
-                <div>
-
-                    <p
-                        class="text-xs font-black uppercase tracking-[0.25em] text-accent">
-
-                        Explore the shelf
-
-                    </p>
-
-                    <h2
-                        id="explore-title"
-                        class="mt-3 text-4xl font-black tracking-tight sm:text-5xl">
-
-                        Pick your mood.
-
-                    </h2>
-
-                </div>
-
-
-                <p
-                    class="max-w-md text-sm leading-6 text-muted">
-
-                    Empat kategori utama FlipPlay dirancang
-                    untuk membuat pengguna menemukan hiburan
-                    tanpa berpindah-pindah platform.
-
-                </p>
-
+            <div class="stat">
+              <p class="stat__value">1</p>
+              <p class="stat__label">Ruang terpadu</p>
             </div>
-
-
-
-            <!-- Cards -->
-            <div class="grid gap-5 md:grid-cols-2">
-
-
-                <!-- CARD 1 -->
-                <article
-                    class="group overflow-hidden rounded-3xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-xl">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?auto=format&fit=crop&w=1000&q=85"
-                        alt="Ilustrasi layar untuk kategori anime"
-                        class="h-56 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0">
-
-                    <div class="p-6 sm:p-7">
-
-                        <div
-                            class="flex items-center justify-between">
-
-                            <span
-                                class="text-xs font-black uppercase tracking-[0.2em] text-accent">
-
-                                01 / Watch
-
-                            </span>
-
-                            <span
-                                class="text-sm font-bold text-muted">
-
-                                Anime
-
-                            </span>
-
-                        </div>
-
-
-                        <h3
-                            class="mt-4 text-2xl font-black">
-
-                            Anime After Hours
-
-                        </h3>
-
-
-                        <p
-                            class="mt-3 leading-7 text-muted">
-
-                            Temukan cerita animasi dari petualangan
-                            ringan hingga dunia fantasi yang penuh
-                            karakter unik.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- CARD 2 -->
-                <article
-                    class="group overflow-hidden rounded-3xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-xl">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1000&q=85"
-                        alt="Ilustrasi suasana menonton drama"
-                        class="h-56 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0">
-
-                    <div class="p-6 sm:p-7">
-
-                        <div
-                            class="flex items-center justify-between">
-
-                            <span
-                                class="text-xs font-black uppercase tracking-[0.2em] text-accent">
-
-                                02 / Watch
-
-                            </span>
-
-                            <span
-                                class="text-sm font-bold text-muted">
-
-                                Drama
-
-                            </span>
-
-                        </div>
-
-
-                        <h3
-                            class="mt-4 text-2xl font-black">
-
-                            Drama for Every Night
-
-                        </h3>
-
-
-                        <p
-                            class="mt-3 leading-7 text-muted">
-
-                            Pilih kisah yang dekat dengan kehidupan,
-                            penuh emosi, konflik, dan momen yang
-                            membuat penasaran.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- CARD 3 -->
-                <article
-                    class="group overflow-hidden rounded-3xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-xl">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=1000&q=85"
-                        alt="Buku yang mewakili kategori manga"
-                        class="h-56 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0">
-
-                    <div class="p-6 sm:p-7">
-
-                        <div
-                            class="flex items-center justify-between">
-
-                            <span
-                                class="text-xs font-black uppercase tracking-[0.2em] text-accent">
-
-                                03 / Read
-
-                            </span>
-
-                            <span
-                                class="text-sm font-bold text-muted">
-
-                                Manga
-
-                            </span>
-
-                        </div>
-
-
-                        <h3
-                            class="mt-4 text-2xl font-black">
-
-                            Turn the Page
-
-                        </h3>
-
-
-                        <p
-                            class="mt-3 leading-7 text-muted">
-
-                            Baca manga favorit dalam pengalaman
-                            digital yang ringkas, mudah dijelajahi,
-                            dan nyaman untuk sesi membaca panjang.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- CARD 4 -->
-                <article
-                    class="group overflow-hidden rounded-3xl border border-line bg-white transition hover:-translate-y-1 hover:shadow-xl">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1000&q=85"
-                        alt="Koleksi buku yang mewakili light novel"
-                        class="h-56 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0">
-
-                    <div class="p-6 sm:p-7">
-
-                        <div
-                            class="flex items-center justify-between">
-
-                            <span
-                                class="text-xs font-black uppercase tracking-[0.2em] text-accent">
-
-                                04 / Read
-
-                            </span>
-
-                            <span
-                                class="text-sm font-bold text-muted">
-
-                                Light Novel
-
-                            </span>
-
-                        </div>
-
-
-                        <h3
-                            class="mt-4 text-2xl font-black">
-
-                            Words Become Worlds
-
-                        </h3>
-
-
-                        <p
-                            class="mt-3 leading-7 text-muted">
-
-                            Masuk lebih dalam ke cerita melalui
-                            narasi dan dunia yang berkembang
-                            halaman demi halaman.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
+            <div class="stat">
+              <p class="stat__value">∞</p>
+              <p class="stat__label">Cerita</p>
             </div>
+          </div>
+        </div>
 
-        </section>
-
-
-
-       
-             <!-- ABOUT -->
-        
-        <section
-            id="about"
-            class="border-y border-line bg-paper-soft"
-            aria-labelledby="about-title">
-
-            <div
-                class="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-20">
+        <a class="hero__scroll" href="#explore">Gulir</a>
+      </section>
 
 
-                <div>
+        <section class="section" id="explore">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">Explore the shelf</p>
+          <h2 class="section__title">Pick your mood.</h2>
+          <p class="section__lede">
+            Empat kategori utama FlipPlay dirancang untuk membuat pengguna
+            menemukan hiburan tanpa berpindah-pindah platform.
+          </p>
+        </div>
 
-                    <p
-                        class="text-xs font-black uppercase tracking-[0.25em] text-accent">
-
-                        The FlipPlay idea
-
-                    </p>
-
-
-                    <h2
-                        id="about-title"
-                        class="mt-4 text-4xl font-black leading-tight tracking-tight sm:text-5xl">
-
-                        Tidak perlu memilih antara
-                        menonton atau membaca.
-
-                    </h2>
-
-                </div>
-
-
-                <div
-                    class="space-y-5 text-base leading-7 text-muted">
-
-                    <p>
-                        FlipPlay dirancang sebagai satu pengalaman
-                        terpadu untuk menikmati berbagai bentuk
-                        cerita digital.
-                    </p>
-
-                    <p>
-                        Dari episode yang sedang ditonton sampai
-                        halaman terakhir yang dibaca, semuanya
-                        berada dalam satu ekosistem hiburan yang
-                        mudah dipahami.
-                    </p>
-
-
-                    <div
-                        class="grid grid-cols-2 gap-3 pt-3">
-
-                        <div
-                            class="rounded-2xl bg-white p-5">
-
-                            <p
-                                class="text-2xl font-black text-ink">
-                                01
-                            </p>
-
-                            <p
-                                class="mt-2 text-sm font-bold">
-                                Simple discovery
-                            </p>
-
-                        </div>
-
-
-                        <div
-                            class="rounded-2xl bg-ink p-5 text-paper">
-
-                            <p
-                                class="text-2xl font-black text-accent">
-                                02
-                            </p>
-
-                            <p
-                                class="mt-2 text-sm font-bold">
-                                One entertainment space
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+        <div class="format-grid" data-reveal>
+          <article class="format-card">
+            <img
+              class="format-card__media"
+              src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+              alt="Ilustrasi layar untuk kategori anime"
+              loading="lazy"
+            />
+            <div class="format-card__body">
+              <div class="format-card__top">
+                <span class="format-card__index">01 / Watch</span>
+                <span class="format-card__kind">Anime</span>
+              </div>
+              <h3 class="format-card__title">Anime After Hours</h3>
+              <p class="format-card__copy">
+                Temukan cerita animasi dari petualangan ringan hingga dunia
+                fantasi yang penuh karakter unik.
+              </p>
             </div>
-
-        </section>
-
-
-
-       <!-- CONTACT FORM -->
-
-        <section
-            id="contact"
-            class="mx-auto max-w-4xl px-5 py-16 lg:py-24"
-            aria-labelledby="contact-title">
-
-
-            <div
-                class="rounded-[2rem] bg-ink p-7 text-paper sm:p-10 lg:p-14">
-
-
-                <div class="max-w-2xl">
-
-                    <p
-                        class="text-xs font-black uppercase tracking-[0.25em] text-accent">
-
-                        Stay in the loop
-
-                    </p>
-
-
-                    <h2
-                        id="contact-title"
-                        class="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-
-                        Punya cerita untuk FlipPlay?
-
-                    </h2>
-
-
-                    <p
-                        class="mt-4 leading-7 text-white/60">
-
-                        Kirimkan pesan atau ide Anda.
-                        Form ini menjadi titik awal interaksi
-                        pengguna pada landing page FlipPlay.
-
-                    </p>
-
-                </div>
-
-
-
-                <!-- FORM -->
-                <form
-                    class="mt-9 grid gap-5 sm:grid-cols-2"
-                    action="#"
-                    method="post">
-
-
-                    <!-- Nama -->
-                    <div>
-
-                        <label
-                            for="name"
-                            class="mb-2 block text-sm font-bold">
-
-                            Nama
-
-                        </label>
-
-                        <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            placeholder="Nama Anda"
-                            required
-                            class="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3.5 text-white outline-none placeholder:text-white/35 focus:border-accent">
-
-                    </div>
-
-
-
-                    <!-- Email -->
-                    <div>
-
-                        <label
-                            for="email"
-                            class="mb-2 block text-sm font-bold">
-
-                            Email
-
-                        </label>
-
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            placeholder="nama@email.com"
-                            required
-                            class="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3.5 text-white outline-none placeholder:text-white/35 focus:border-accent">
-
-                    </div>
-
-
-
-                    <!-- Select -->
-                    <div class="sm:col-span-2">
-
-                        <label
-                            for="category"
-                            class="mb-2 block text-sm font-bold">
-
-                            Apa yang ingin Anda sampaikan?
-
-                        </label>
-
-                        <select
-                            id="category"
-                            name="category"
-                            class="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3.5 text-white outline-none focus:border-accent">
-
-                            <option
-                                class="text-ink"
-                                value="feedback">
-
-                                Feedback
-
-                            </option>
-
-                            <option
-                                class="text-ink"
-                                value="content">
-
-                                Saran konten
-
-                            </option>
-
-                            <option
-                                class="text-ink"
-                                value="collaboration">
-
-                                Kolaborasi
-
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-
-                    <!-- Message -->
-                    <div class="sm:col-span-2">
-
-                        <label
-                            for="message"
-                            class="mb-2 block text-sm font-bold">
-
-                            Pesan
-
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="5"
-                            placeholder="Tulis pesan Anda..."
-                            required
-                            class="w-full resize-none rounded-xl border border-white/15 bg-white/10 px-4 py-3.5 text-white outline-none placeholder:text-white/35 focus:border-accent"></textarea>
-
-                    </div>
-
-
-
-                    <!-- Submit -->
-                    <div class="sm:col-span-2">
-
-                        <button
-                            type="submit"
-                            class="w-full rounded-xl bg-accent px-6 py-4 text-sm font-black text-white transition hover:bg-accent-dark">
-
-                            Kirim pesan →
-
-                        </button>
-
-                    </div>
-
-                </form>
-
+          </article>
+
+          <article class="format-card">
+            <img
+              class="format-card__media"
+              src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+              alt="Ilustrasi suasana menonton drama"
+              loading="lazy"
+            />
+            <div class="format-card__body">
+              <div class="format-card__top">
+                <span class="format-card__index">02 / Watch</span>
+                <span class="format-card__kind">Drama</span>
+              </div>
+              <h3 class="format-card__title">Drama for Every Night</h3>
+              <p class="format-card__copy">
+                Pilih kisah yang dekat dengan kehidupan, penuh emosi, konflik,
+                dan momen yang membuat penasaran.
+              </p>
             </div>
+          </article>
 
-        </section>
+          <article class="format-card">
+            <img
+              class="format-card__media"
+              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+              alt="Buku yang mewakili kategori manga"
+              loading="lazy"
+            />
+            <div class="format-card__body">
+              <div class="format-card__top">
+                <span class="format-card__index">03 / Read</span>
+                <span class="format-card__kind">Manga</span>
+              </div>
+              <h3 class="format-card__title">Turn the Page</h3>
+              <p class="format-card__copy">
+                Baca manga favorit dalam pengalaman digital yang ringkas, mudah
+                dijelajahi, dan nyaman untuk sesi membaca panjang.
+              </p>
+            </div>
+          </article>
+
+          <article class="format-card">
+            <img
+              class="format-card__media"
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+              alt="Koleksi buku yang mewakili light novel"
+              loading="lazy"
+            />
+            <div class="format-card__body">
+              <div class="format-card__top">
+                <span class="format-card__index">04 / Read</span>
+                <span class="format-card__kind">Light Novel</span>
+              </div>
+              <h3 class="format-card__title">Words Become Worlds</h3>
+              <p class="format-card__copy">
+                Masuk lebih dalam ke cerita melalui narasi dan dunia yang
+                berkembang halaman demi halaman.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+       <section class="section about" id="about">
+        <div class="about__art" data-depth="0.35" aria-hidden="true">
+          <span class="about__ring"></span>
+          <span class="about__ring about__ring--2"></span>
+        </div>
+
+        <div class="about__copy" data-reveal>
+          <p class="eyebrow">The FlipPlay idea</p>
+          <h2 class="section__title">
+            Tidak perlu memilih antara menonton atau membaca.
+          </h2>
+          <p>
+            FlipPlay dirancang sebagai satu pengalaman terpadu untuk menikmati
+            berbagai bentuk cerita digital.
+          </p>
+          <p>
+            Dari episode yang sedang ditonton sampai halaman terakhir yang
+            dibaca, semuanya berada dalam satu ekosistem hiburan yang mudah
+            dipahami.
+          </p>
+
+          <div class="about__points">
+            <div class="about__point">
+              <p class="about__point-num">01</p>
+              <p class="about__point-label">Simple discovery</p>
+            </div>
+            <div class="about__point about__point--dark">
+              <p class="about__point-num">02</p>
+              <p class="about__point-label">One entertainment space</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <section class="section" id="contact">
+        <div class="contact" data-reveal>
+          <div class="contact__head">
+            <p class="eyebrow">Stay in the loop</p>
+            <h2 class="section__title">Punya cerita untuk FlipPlay?</h2>
+            <p class="section__lede">
+              Kirimkan pesan atau ide Anda. Form ini menjadi titik awal
+              interaksi pengguna pada landing page FlipPlay.
+            </p>
+          </div>
+
+          <form class="contact__form" data-contact-form action="#" method="post">
+            <label class="contact__field">
+              <span class="contact__label">Nama</span>
+              <input
+                class="contact__input"
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Nama Anda"
+                required
+              />
+            </label>
+
+            <label class="contact__field">
+              <span class="contact__label">Email</span>
+              <input
+                class="contact__input"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="nama@email.com"
+                required
+              />
+            </label>
+
+            <label class="contact__field contact__field--full">
+              <span class="contact__label">Apa yang ingin Anda sampaikan?</span>
+              <select class="contact__input" id="category" name="category">
+                <option value="feedback">Feedback</option>
+                <option value="content">Saran konten</option>
+                <option value="collaboration">Kolaborasi</option>
+              </select>
+            </label>
+
+            <label class="contact__field contact__field--full">
+              <span class="contact__label">Pesan</span>
+              <textarea
+                class="contact__input contact__textarea"
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tulis pesan Anda..."
+                required
+              ></textarea>
+            </label>
+
+            <div class="contact__field contact__field--full">
+              <button class="btn btn--brass contact__submit" type="submit">
+                Kirim pesan →
+              </button>
+              <p
+                class="contact__status"
+                data-contact-status
+                role="status"
+                aria-live="polite"
+                hidden
+              ></p>
+            </div>
+          </form>
+        </div>
+      </section>
 
     </main>
-
-
-
-
-    <!-- =========================
-         FOOTER
-         ========================== -->
-    <footer class="foot-mast">
-
-        <p class="foot-mast__wordmark">Flip<span>Play</span></p>
-
-        <p class="foot-mast__tagline">Watch. Read. Repeat.</p>
-
-        <nav class="foot-mast__links" aria-label="Navigasi footer">
-            <a href="#home">Home</a>
-            <a href="#explore">Explore</a>
-            <a href="./vibe-grid.html">Vibe Grid</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <p class="foot-mast__licence">
-            © 2026 FlipPlay · Data dari AniList
-        </p>
-
+     <footer class="site-footer">
+      <p class="site-footer__brand">Flip<span>Play</span></p>
+      <p class="site-footer__tagline">Watch. Read. Repeat.</p>
+      <nav class="site-footer__links" aria-label="Navigasi footer">
+        <a href="#home">Home</a>
+        <a href="#explore">Explore</a>
+        <a href="./vibe-grid.html">Vibe Grid</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <p class="site-footer__licence">© 2026 FlipPlay · Data dari Kitsu</p>
     </footer>
-        
 
-    <script src="./js/app.js"></script>
+    
 </body>
-
 </html>

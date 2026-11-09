@@ -1,13 +1,12 @@
-/**
- * Domain murni: definisi Aura dan cara mencocokkan satu item ke satu aura.
- * Tidak boleh menyentuh DOM dan tidak boleh melakukan fetch.
- */
+export const ALL_AURA_ID = "all";
 
-export const ALL_AURA_ID = "all"
+function matchesAnyCategory(item, categories) {
+  const wanted = categories.map((category) => category.toLowerCase());
+  const owned = (item.categories || []).map((category) =>
+    String(category).toLowerCase()
+  );
 
-const matchesAnyTag = (item, tags) => {
-  const wanted = tags.map((tag) => tag.toLowerCase())
-  return item.tags.some((tag) => wanted.includes(String(tag).toLowerCase()))
+  return owned.some((category) => wanted.includes(category));
 }
 
 export const AURAS = [
@@ -25,20 +24,21 @@ export const AURAS = [
         "Super Power",
         "Shounen",
         "Sci-Fi",
+        "Science Fiction",
         "Military",
         "Martial Arts",
-      ]
+      ];
 
-      const hasTag = matchesAnyTag(item, energetic)
-      const longRun = item.kind === "anime" && item.episodes >= 24
+      const hasCategory = matchesAnyCategory(item, energetic);
+      const longRun = item.kind === "anime" && Number(item.episodes) >= 24;
 
-      return hasTag || longRun
+      return hasCategory || longRun;
     },
   },
   {
     id: "melancholy",
     label: "Melancholy",
-    hint: "Drama, psikologis, dan cerita yang menghangurkan.",
+    hint: "Drama, psikologis, dan cerita yang menghangatkan.",
     match(item) {
       const moody = [
         "Drama",
@@ -50,9 +50,9 @@ export const AURAS = [
         "Historical",
         "Tragedy",
         "Suspense",
-      ]
+      ];
 
-      return matchesAnyTag(item, moody)
+      return matchesAnyCategory(item, moody);
     },
   },
   {
@@ -61,15 +61,15 @@ export const AURAS = [
     hint: "Pendek, atau bisa dituntaskan dalam satu malam.",
     match(item) {
       if (item.kind === "manga") {
-        return item.chapters !== null && item.chapters <= 30
+        return Number(item.chapters) > 0 && Number(item.chapters) <= 30;
       }
 
       const shortType = ["movie", "ona", "special", "ova"].includes(
-        String(item.type).toLowerCase()
-      )
-      const shortRun = item.episodes !== null && item.episodes <= 13
+        String(item.subtype).toLowerCase()
+      );
+      const shortRun = Number(item.episodes) > 0 && Number(item.episodes) <= 13;
 
-      return shortType || shortRun
+      return shortType || shortRun;
     },
   },
   {
@@ -84,34 +84,34 @@ export const AURAS = [
         "Iyashikei",
         "Parody",
         "School",
+        "School Life",
         "Harem",
         "Kids",
-      ]
+      ];
 
-      return matchesAnyTag(item, relaxed)
+      return matchesAnyCategory(item, relaxed);
     },
   },
-]
+];
 
 /**
  * Mencocokkan satu item dengan aura yang dipilih.
  * Aura "all" selalu cocok.
  */
 export function matchAura(item, auraId) {
-  if (!auraId || auraId === ALL_AURA_ID) return true
+  if (!auraId || auraId === ALL_AURA_ID) return true;
 
-  const aura = AURAS.find((entry) => entry.id === auraId)
-  if (!aura) return true
+  const aura = AURAS.find((entry) => entry.id === auraId);
+  if (!aura) return true;
 
-  return aura.match(item)
+  return aura.match(item);
 }
 
 /**
  * Mengambil label aura untuk ditampilkan.
  */
 export function getAuraLabel(auraId) {
-  if (auraId === ALL_AURA_ID) return "Semua Vibes"
+  if (auraId === ALL_AURA_ID) return "Semua Vibes";
 
-  return AURAS.find((entry) => entry.id === auraId)?.label ?? "Semua Vibes"
+  return AURAS.find((entry) => entry.id === auraId)?.label ?? "Semua Vibes";
 }
-        

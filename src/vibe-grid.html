@@ -1,146 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="The Vibe Grid — katalog anime &amp; manga dari AniList, dengan pencarian dan filter aura.">
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The Vibe Grid — FlipPlay</title>
+    <meta
+      name="description"
+      content="Katalog anime dan manga FlipPlay. Cari judul, pilih jenis, saring kategori, dan temukan vibe yang cocok."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./output.css" />
+    <script type="module" src="./frontend/js/vibe-grid.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#konten">Lewati ke konten</a>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+    <header class="nav" data-nav>
+      <video
+        class="nav__video"
+        data-nav-video
+        data-src-webm="./assets/nav-loop.webm"
+        data-src-mp4="./assets/nav-loop.mp4"
+        poster="./assets/nav-poster.jpg"
+        muted
+        loop
+        playsinline
+        preload="none"
+        disablepictureinpicture
+        aria-hidden="true"
+      ></video>
+      <div class="nav__scrim" aria-hidden="true"></div>
 
-    <link href="./output.css" rel="stylesheet">
-</head>
-
-<body class="bg-paper text-ink antialiased">
-
-    <!-- =========================
-         MASTHEAD
-         ========================== -->
-    <header class="masthead masthead--sticky masthead--menu">
-
-        <p class="masthead__line">EDISI #01 · FLIPPLAY</p>
-
-        <a class="masthead__name" href="./index.html">
-            The Vibe <span class="masthead__accent">Grid</span>
+      <div class="nav__inner">
+        <a class="nav__brand" href="./index.html">
+          <span class="nav__brand-mark">FL</span>
+          <span>
+            FlipPlay
+            <em>Watch · Read · Live</em>
+          </span>
         </a>
 
-        <button class="masthead__toggle"
-                id="menu-toggle"
-                type="button"
-                aria-label="Buka menu navigasi"
-                aria-expanded="false"
-                aria-controls="menu-sheet">
-
-            <svg id="menu-icon"
-                 xmlns="http://www.w3.org/2000/svg"
-                 width="22" height="22"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 aria-hidden="true">
-                <line x1="4" y1="6" x2="20" y2="6"></line>
-                <line x1="4" y1="12" x2="20" y2="12"></line>
-                <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-        </button>
-
-        <nav class="masthead__nav" aria-label="Navigasi utama">
-            <ul>
-                <li><a href="./index.html">FlipPlay</a></li>
-                <li><a href="./vibe-grid.html" aria-current="page">Vibe Grid</a></li>
-            </ul>
+        <nav class="nav__links" id="nav-links" data-nav-links aria-label="Navigasi utama">
+          <a class="nav__link" href="./index.html">Home</a>
+          <a class="nav__link" href="./index.html#explore">Explore</a>
+          <a class="nav__link" href="./index.html#about">About</a>
+          <a class="nav__link" href="./index.html#contact">Contact</a>
+          <a class="nav__link" href="./vibe-grid.html" aria-current="page">Vibe Grid</a>
         </nav>
 
-        <div class="masthead__sheet" id="menu-sheet">
-            <a href="./index.html">FlipPlay</a>
-            <a href="./vibe-grid.html" aria-current="page">Vibe Grid</a>
-        </div>
-
-        <hr class="masthead__rule">
-
+        <button
+          class="nav__toggle"
+          type="button"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Buka menu"
+        >
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+      </div>
     </header>
 
-    <main>
+    <main id="konten">
+      <section class="page-head" data-reveal>
+        <p class="eyebrow">The Vibe Grid</p>
+        <h1>Katalog Anime &amp; Manga</h1>
+        <p>
+          Cari judul, pilih jenis, saring kategori, lalu tentukan urutan rak.
+          Tekan sebuah kartu untuk melihat detail.
+        </p>
+      </section>
 
-        <!-- =========================
-             FILTER BAND
-             ========================== -->
-        <section class="filter-band" aria-labelledby="katalog-title">
+      <section class="section library" id="katalog">
+        <div class="library-toolbar" data-reveal>
+          <label class="field">
+            <span class="field__label">Cari judul</span>
+            <input
+              class="field__input"
+              type="search"
+              data-library-search
+              placeholder="Cari judul atau genre…"
+              autocomplete="off"
+            />
+          </label>
 
-            <h1 class="filter-band__title" id="katalog-title">
-                Katalog Anime &amp; Manga
-            </h1>
+          <div class="field">
+            <span class="field__label">Jenis</span>
+            <div class="chips" data-kind-chips role="group" aria-label="Jenis judul">
+              <button class="chip is-active" type="button" data-kind="all" aria-pressed="true">
+                Semua
+              </button>
+              <button class="chip" type="button" data-kind="anime" aria-pressed="false">
+                Anime
+              </button>
+              <button class="chip" type="button" data-kind="manga" aria-pressed="false">
+                Manga
+              </button>
+            </div>
+          </div>
 
-            <form class="search-form" id="search-form" role="search">
-                <label class="search">
-                    <svg class="search__icon"
-                         xmlns="http://www.w3.org/2000/svg"
-                         width="18" height="18"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="2"
-                         stroke-linecap="round"
-                         aria-hidden="true">
-                        <circle cx="11" cy="11" r="7"></circle>
-                        <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
-                    </svg>
-                    <input id="search-input"
-                           type="search"
-                           name="q"
-                           placeholder="Cari judul, genre, atau studio…"
-                           autocomplete="off"
-                           aria-label="Cari judul anime atau manga">
-                </label>
-            </form>
+          <label class="field">
+            <span class="field__label">Urutkan</span>
+            <select class="select" data-sort>
+              <option value="popular">Paling ramai</option>
+              <option value="rating">Rating tertinggi</option>
+              <option value="newest">Terbaru</option>
+            </select>
+          </label>
+        </div>
 
-            <div class="aura" id="aura-list" role="group" aria-label="Filter aura"></div>
+        <div class="library-vibes">
+          <span class="field__label">Vibe</span>
+          <div class="chips chips--aura" data-aura-chips role="group" aria-label="Filter aura"></div>
+        </div>
 
-            <p class="count" id="result-count" role="status" aria-live="polite"></p>
+        <div class="library-meta">
+          <p class="result-count" data-result-count></p>
+          <p class="status" data-library-status role="status" aria-live="polite"></p>
+        </div>
 
-        </section>
+        <div
+          class="chips chips--categories"
+          data-category-chips
+          role="group"
+          aria-label="Kategori"
+        ></div>
 
-        <!-- =========================
-             GRID
-             ========================== -->
-        <section class="media-grid" id="media-grid" aria-label="Daftar judul"></section>
+        <div class="book-grid" data-library-grid aria-live="polite"></div>
 
+        <div class="library-more">
+          <button class="btn btn--ghost" type="button" data-load-more hidden>
+            Muat lebih banyak
+          </button>
+        </div>
+      </section>
     </main>
 
-    <!-- =========================
-         FOOTER
-         ========================== -->
-    <footer class="foot-mast">
-
-        <p class="foot-mast__wordmark">Flip<span>Play</span></p>
-
-        <p class="foot-mast__tagline">Watch. Read. Repeat.</p>
-
-        <nav class="foot-mast__links" aria-label="Navigasi footer">
-            <a href="./index.html">FlipPlay</a>
-            <a href="./vibe-grid.html">Vibe Grid</a>
-            <a href="./index.html#contact">Contact</a>
-        </nav>
-
-        <p class="foot-mast__licence">
-            © 2026 FlipPlay · Data dari AniList
-        </p>
-
+    <footer class="site-footer">
+      <p class="site-footer__brand">Flip<span>Play</span></p>
+      <p class="site-footer__tagline">Watch. Read. Repeat.</p>
+      <nav class="site-footer__links" aria-label="Navigasi footer">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#explore">Explore</a>
+        <a href="./vibe-grid.html">Vibe Grid</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+      <p class="site-footer__licence">© 2026 FlipPlay · Data dari Kitsu</p>
     </footer>
 
-    <script type="module" src="./js/main.js"></script>
-
-</body>
-
+    <dialog class="modal" data-book-modal aria-labelledby="modal-title">
+      <div class="modal__panel">
+        <button class="modal__close" type="button" data-modal-close aria-label="Tutup detail">
+          ×
+        </button>
+        <div class="modal__poster" data-modal-poster aria-hidden="true"></div>
+        <div class="modal__body">
+          <h2 class="modal__title" id="modal-title" data-modal-title></h2>
+          <p class="modal__meta" data-modal-meta></p>
+          <div class="modal__categories" data-modal-categories></div>
+          <p class="modal__synopsis" data-modal-synopsis></p>
+          <div class="modal__actions">
+            <a
+              class="btn btn--brass"
+              data-modal-link
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Buka di Kitsu
+            </a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </body>
 </html>
-        

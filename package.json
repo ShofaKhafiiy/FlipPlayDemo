@@ -1,7 +1,11 @@
 {
+  "name":"Flip-Play-Library",
+  "private": true,
+  "version": "2.0.0",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify"
+    "build": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
+    "preview": "npx serve src"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.3.3",
